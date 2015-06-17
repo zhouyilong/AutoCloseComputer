@@ -24,5 +24,6 @@ namespace AutoCloseComputer
         {
             InitializeComponent();
         }
+
     }
 }
