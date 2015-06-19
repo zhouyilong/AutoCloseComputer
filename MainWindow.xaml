@@ -3,10 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="定时关机" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="Time" HorizontalAlignment="Left" Height="23" Margin="87,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="49,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="zh-cn" Text="分："/></TextBlock>
-        <Button Content="开始定时" x:Name="StartShutDown" HorizontalAlignment="Left" Margin="251,130,0,0" VerticalAlignment="Top" Width="75" Click="StartShutDown_Click"/>
-        <Button Content="取消关机" x:Name="StopShutDown" HorizontalAlignment="Left" Margin="359,130,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.123,0.682" Click="StopShutDown_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Hours" Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="70"/>
+        <TextBlock Grid.Column="0" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"><Run Language="zh-cn" Text="时"/></TextBlock>
+        <TextBox x:Name="Minutes" Grid.Column="3" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" VerticalAlignment="Center" Width="70" >
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <TextBlock x:Name="MinutesError" Text="cuowu"></TextBlock>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+            <Validation.ValidationAdornerSite>
+                <AccessText > 
+                    
+                </AccessText>
+            </Validation.ValidationAdornerSite>
+        </TextBox>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center">
+            <Run Language="zh-cn" Text="分"/>
+        </TextBlock>
+        <Button Grid.Column="4" Content="开始定时" x:Name="StartShutDown" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75" Click="StartShutDown_Click"/>
+        <Button Grid.Column="5" Content="取消关机" x:Name="StopShutDown" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75" RenderTransformOrigin="2.123,0.682" Click="StopShutDown_Click"/>
 
     </Grid>
 </Window>

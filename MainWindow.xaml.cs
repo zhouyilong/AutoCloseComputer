@@ -17,7 +17,7 @@ namespace AutoCloseComputer
         //开始定时关机
         private void StartShutDown_Click(object sender, RoutedEventArgs e)
         {
-            string strTime = Time.Text;
+            string strTime = Minutes.Text;
             if(string.IsNullOrEmpty(strTime))
             {
                 MessageBox.Show("请输入要定时的时间哦！");
