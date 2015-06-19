@@ -17,15 +17,21 @@ namespace AutoCloseComputer
         //开始定时关机
         private void StartShutDown_Click(object sender, RoutedEventArgs e)
         {
-            string strTime = Minutes.Text;
-            if(string.IsNullOrEmpty(strTime))
+            string strMinutes = Minutes.Text;
+            string strHours = Hours.Text;
+            if(string.IsNullOrEmpty(strMinutes)&&string.IsNullOrEmpty(strHours))
             {
                 MessageBox.Show("请输入要定时的时间哦！");
                 return;
             }
 
+            //格式化时间
+            strMinutes = string.IsNullOrEmpty(strMinutes) ? "0" : strMinutes;
+            strHours = string.IsNullOrEmpty(strHours) ? "0" : strHours;
+
             int minutes;
-            if (Int32.TryParse(strTime, out minutes))
+            int hours;
+            if (Int32.TryParse(strMinutes, out minutes)&&Int32.TryParse(strHours,out hours))
             {
                 Process p = new Process();
                 p.StartInfo.FileName = "cmd.exe ";
@@ -35,8 +41,13 @@ namespace AutoCloseComputer
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.CreateNoWindow = true;
                 p.Start();
-                p.StandardInput.WriteLine("shutdown -s -t " + Convert.ToString(minutes * 60));   //填CMD命令
-
+                p.StandardInput.WriteLine("shutdown -s -t " + Convert.ToString(minutes * 60+hours*60*60));   //填CMD命令
+                //p.StandardInput.WriteLine("exit");
+                //string strMessage = p.StandardOutput.ReadToEnd();
+                //p.WaitForExit();
+                //p.Close();
+                //MessageBox.Show(strMessage);
+           
             }
             else
             {
