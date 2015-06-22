@@ -18,6 +18,9 @@ namespace AutoCloseComputer
         {
             InitializeComponent();
 
+            StartShutDown.IsEnabled = true;
+            StopShutDown.IsEnabled = false;
+
             using( OleDbConnection conn = AccessHelper.getConn()) //getConn():得到连接对象
             {
                 OleDbDataAdapter adapter = new OleDbDataAdapter();
