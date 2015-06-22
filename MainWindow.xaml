@@ -29,6 +29,7 @@
         </TextBlock>
         <Button Grid.Column="4" Grid.Row="0" Content="开始定时" x:Name="StartShutDown" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="74" Click="StartShutDown_Click" Height="18" FontFamily="KaiTi" />
         <Button Grid.Column="5" Grid.Row="0" Content="取消关机" x:Name="StopShutDown" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="74" RenderTransformOrigin="2.123,0.682" Click="StopShutDown_Click" Height="18" FontFamily="KaiTi" />
+        <TextBlock x:Name="showTime" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="19,34,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-3.656,-0.467"/>
 
     </Grid>
 </Window>

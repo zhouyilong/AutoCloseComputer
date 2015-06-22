@@ -81,6 +81,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Storage\AccessHelper.cs" />
+    <Compile Include="Storage\CloseComputer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DA\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
