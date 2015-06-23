@@ -84,6 +84,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Storage\AccessHelper.cs" />
     <Compile Include="Storage\CloseComputer.cs" />
     <Page Include="MainWindow.xaml">
@@ -103,11 +108,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -120,8 +120,6 @@
     <None Include="AutoCloseComputer_TemporaryKey.pfx" />
     <Resource Include="Resources\咯咯哒的梦想.ttf" />
     <Resource Include="Resources\萌货痴痴.ttf" />
-    <Resource Include="Resources\QuartzMS.TTF" />
-    <Resource Include="Resources\草檀斋毛泽东字体.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

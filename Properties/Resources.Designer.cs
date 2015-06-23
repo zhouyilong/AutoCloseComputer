@@ -63,29 +63,9 @@ namespace AutoCloseComputer.Properties {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
-        public static byte[] QuartzMS {
-            get {
-                object obj = ResourceManager.GetObject("QuartzMS", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
         public static byte[] 咯咯哒的梦想 {
             get {
                 object obj = ResourceManager.GetObject("咯咯哒的梦想", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        public static byte[] 草檀斋毛泽东字体 {
-            get {
-                object obj = ResourceManager.GetObject("草檀斋毛泽东字体", resourceCulture);
                 return ((byte[])(obj));
             }
         }
