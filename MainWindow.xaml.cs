@@ -34,14 +34,13 @@ namespace AutoCloseComputer
                 {
                     if(closeDateTime>DateTime.Now)
                     {
-                        StartShutDown.IsEnabled = false;
-                        StopShutDown.IsEnabled = true;
-
-                        showTime.Text = "小龙温馨提示：\n当前计算机将在" + strCloseDateTime+"关闭\n请如果需要取消定时关机，请点击取消定时关机！";
+                        ShowClosePlan(strCloseDateTime);
                     }
                 }
             }
         }
+
+
 
         //开始定时关机
         private void StartShutDown_Click(object sender, RoutedEventArgs e)
@@ -71,11 +70,6 @@ namespace AutoCloseComputer
                 p.StartInfo.CreateNoWindow = true;
                 p.Start();
                 p.StandardInput.WriteLine("shutdown -s -t " + Convert.ToString(minutes * 60+hours*60*60));   //填CMD命令
-                //p.StandardInput.WriteLine("exit");
-                //string strMessage = p.StandardOutput.ReadToEnd();
-                //p.WaitForExit();
-                //p.Close();
-                //MessageBox.Show(strMessage);
 
                 //将关机时间更新到数据库中
                 DateTime dtCloseTime = DateTime.Now.AddSeconds(minutes * 60 + hours * 60 * 60);
@@ -91,10 +85,7 @@ namespace AutoCloseComputer
 
                 if (dtCloseTime > DateTime.Now)
                 {
-                    StartShutDown.IsEnabled = false;
-                    StopShutDown.IsEnabled = true;
-
-                    showTime.Text = "小龙温馨提示：\n当前计算机将在" + strCloseTime + "关闭\n请如果需要取消定时关机，请点击取消定时关机！";
+                    ShowClosePlan(strCloseTime);
                 }
             }
             else
@@ -131,6 +122,17 @@ namespace AutoCloseComputer
 
             showTime.Text = "已经取消了当前定时计划！";
         }
+
+        #region===类公共方法===
+        //显示关机计划
+        private void ShowClosePlan(string strCloseDateTime)
+        {
+            StartShutDown.IsEnabled = false;
+            StopShutDown.IsEnabled = true;
+
+            showTime.Text = "小龙温馨提示：\n当前计算机将在" + strCloseDateTime + "关闭\n请如果需要取消定时关机，请点击取消定时关机！";
+        }
+        #endregion
 
     }
 }
