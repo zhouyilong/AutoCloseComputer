@@ -11,7 +11,8 @@ namespace AutoCloseComputer.Storage
     {
         public static OleDbConnection getConn()
         {
-            string connstr = "Provider= Microsoft.Jet.OLEDB.4.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/AutoCloseSetup/AutoCloseComputerDB.mdb";
+            //string connstr = "Provider= Microsoft.ACE.OLEDB.12.0;Data Source=./AutoCloseComputerDB.accdb";
+            string connstr = "Provider= Microsoft.Jet.OLEDB.4.0;Data Source=./AutoCloseComputerDB.mdb";
             OleDbConnection tempconn = new OleDbConnection(connstr);
             return (tempconn);
         }

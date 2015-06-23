@@ -1,58 +1,35 @@
 ﻿<Window x:Class="AutoCloseComputer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="定时关机" Height="575" Width="420" ResizeMode="NoResize" Icon="Images/close.ico" 
-        xmlns:myToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit">
+        Title="定时关机" Height="575" Width="409" ResizeMode="NoResize" Icon="Images/close.ico" >
     <Window.Background>
-        <ImageBrush ImageSource="Images/background.jpg" TileMode="Tile"/>
+        <ImageBrush ImageSource="Images/background.jpg" />
     </Window.Background>
-    <Window.Resources>
-        <Style x:Key="MZDFont">
-            <Setter Property="TextElement.FontFamily" Value="Resources/#草檀斋毛泽东字体"/>
-        </Style>
-        <Style x:Key="MHCCFont">
-            <Setter Property="TextElement.FontFamily" Value="Resources/#【墨墨】萌货痴痴"/>
-        </Style>
-        <Style x:Key="GGDFont">
-            <Setter Property="TextElement.FontFamily" Value="Resources/#【胡茉茉】咯咯哒的梦想"/>
-        </Style>
-    </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="86"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="90"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="提供两种方式" Margin="2,79,286,52" RenderTransformOrigin="0.598,1.926" Style="{DynamicResource GGDFont}"></TextBlock>
-        <Line X1="0" X2="83.084" Stroke="#FF1100FF" StrokeThickness="2" Margin="78,45,241,64" Y1="40.691"/>
-        <Line X1="0" X2="83.084" Stroke="#FF1100FF" StrokeThickness="2" Margin="78,87,241,32" Y2="30.691"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="160.587,105,10,14.877">
-            <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" TextWrapping="Wrap" Text="固定日期:" Style="{DynamicResource GGDFont}" VerticalAlignment="Center"  />
-            <myToolkit:DateTimePicker x:Name="FixedDateTime" Width="170" ></myToolkit:DateTimePicker>
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="160.578,28.067,51.321,89.02">
-            <TextBlock HorizontalAlignment="Right" Text="时:" TextWrapping="Wrap" VerticalAlignment="Center" Height="14" Width="20" Style="{DynamicResource GGDFont}"
-></TextBlock>
-            <TextBox x:Name="Hours"  HorizontalAlignment="Center" Height="28"  TextWrapping="Wrap" VerticalAlignment="Center" Width="70" />
-            <TextBlock HorizontalAlignment="Center" Text="分:" TextWrapping="Wrap" VerticalAlignment="Center" Height="14"  Width="20" Style="{DynamicResource GGDFont}">
-            </TextBlock>
-            <TextBox x:Name="Minutes"  HorizontalAlignment="Center" Height="28"  TextWrapping="Wrap" VerticalAlignment="Center" Width="70"  >
-            </TextBox>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="109.5,0,108.5,0" Width="185">
-            <Button  Content="开始定时" x:Name="StartShutDown" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="74" Click="StartShutDown_Click" Height="18" FontFamily="KaiTi" Margin="12,0,10,0" />
-            <Button Content="取消关机" x:Name="StopShutDown" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="74" RenderTransformOrigin="2.123,0.682" Click="StopShutDown_Click" Height="18" FontFamily="KaiTi" />
-        </StackPanel>
-        <TextBlock x:Name="showTime" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"  Text="" TextDecorations="{x:Null}" Style="{DynamicResource MHCCFont}" FontSize="16" Opacity="0.5">
-            <TextBlock.Foreground>
-                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HotTrackColorKey}}"/>
-            </TextBlock.Foreground>
-            <TextBlock.Background>
-                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightLightColorKey}}"/>
-            </TextBlock.Background>
+        <TextBox x:Name="Hours" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="22"  TextWrapping="Wrap" VerticalAlignment="Center" Width="70" />
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right"  TextWrapping="Wrap" VerticalAlignment="Center" Height="14" Width="12" FontFamily="KaiTi"
+><Run Language="zh-cn" Text="时" /></TextBlock>
+        <TextBox x:Name="Minutes" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Height="22"  TextWrapping="Wrap" VerticalAlignment="Center" Width="70"  >
+        </TextBox>
+        <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="14"  Width="12" FontFamily="KaiTi">
+            <Run Language="zh-cn" Text="分"/>
         </TextBlock>
+        <Button Grid.Column="4" Grid.Row="0" Content="开始定时" x:Name="StartShutDown" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="74" Click="StartShutDown_Click" Height="18" FontFamily="KaiTi" />
+        <Button Grid.Column="5" Grid.Row="0" Content="取消关机" x:Name="StopShutDown" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="74" RenderTransformOrigin="2.123,0.682" Click="StopShutDown_Click" Height="18" FontFamily="KaiTi" />
+        <TextBlock x:Name="showTime" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="19,34,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-3.656,-0.467"/>
 
     </Grid>
 </Window>
